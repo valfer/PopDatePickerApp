@@ -17,6 +17,7 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
     var textField : UITextField!
     var dataChanged : PopDatePickerCallback?
     var presented = false
+    var offset : CGFloat = 8.0
     
     public init(forTextField: UITextField) {
         
@@ -28,7 +29,7 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
     public func pick(inViewController : UIViewController, initDate : NSDate?, dataChanged : PopDatePickerCallback) {
         
         if presented {
-            return
+            return  // we are busy
         }
         
         datePickerVC.delegate = self
@@ -40,24 +41,13 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         if let _popover = popover {
             
             _popover.sourceView = textField
-            _popover.sourceRect = CGRectMake(8,32,0,0)
+            _popover.sourceRect = CGRectMake(self.offset,textField.bounds.size.height,0,0)
             _popover.delegate = self
             self.dataChanged = dataChanged
             inViewController.presentViewController(datePickerVC, animated: true, completion: nil)
             presented = true
         }
     }
-    
-    /*
-    BUG: questo metodo così sembra inutile, però se lo levi si verifica il seguente bug (potrebbe essere solo un problem di timing che viene modificato dalla dichiarazione del metodo delegate):
-    a popover aperto doppio click causa dismiss del view controller parent del popover. Sembrerebbe un BUG del sistema, da approfondire
-    */
-    public func popoverPresentationControllerShouldDismissPopover(popoverPresentationController: UIPopoverPresentationController) -> Bool {
-        return true
-    }
-    /*
-    fine PATCH
-    */
     
     func adaptivePresentationStyleForPresentationController(PC: UIPresentationController!) -> UIModalPresentationStyle {
         

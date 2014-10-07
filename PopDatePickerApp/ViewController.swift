@@ -29,27 +29,27 @@ class ViewController: UIViewController, UITextFieldDelegate {
         nameTextField.resignFirstResponder()
     }
     
-    func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+    
+    if (textField === dobTextField) {
+        resign()
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = .MediumStyle
+        formatter.timeStyle = .NoStyle
+        let initDate = formatter.dateFromString(dobTextField.text)
         
-        if (textField === dobTextField) {
-            resign()
-            let formatter = NSDateFormatter()
-            formatter.dateStyle = .MediumStyle
-            formatter.timeStyle = .NoStyle
-            let initDate = formatter.dateFromString(dobTextField.text)
+        popDatePicker!.pick(self, initDate:initDate, dataChanged: { (newDate : NSDate, forTextField : UITextField) -> () in
             
-            popDatePicker!.pick(self, initDate:initDate, dataChanged: { (newDate : NSDate, forTextField : UITextField) -> () in
-                
-                // here we don't use self (no retain cycle)
-                forTextField.text = newDate.ToDateMediumString()
-                
-            })
-            return false
-        }
-        else {
-            return true
-        }
+            // here we don't use self (no retain cycle)
+            forTextField.text = newDate.ToDateMediumString()
+            
+        })
+        return false
     }
+    else {
+        return true
+    }
+}
     
     @IBAction func save(sender: AnyObject) {
         
