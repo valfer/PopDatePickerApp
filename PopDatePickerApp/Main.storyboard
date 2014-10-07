@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PopDatePickerApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wv1-hY-84m">
+                                <rect key="frame" x="147" y="63" width="308" height="160"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e1H-14-uZc">
+                                        <rect key="frame" x="88" y="24" width="46" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Fl4-I3-wCR">
+                                        <rect key="frame" x="142" y="20" width="146" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="146" id="FSQ-6n-3tM"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date of birthday" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xhg-tE-y5s">
+                                        <rect key="frame" x="11" y="62" width="123" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="tap here" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDT-3J-RZN">
+                                        <rect key="frame" x="142" y="58" width="146" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Fl4-I3-wCR" firstAttribute="leading" secondItem="e1H-14-uZc" secondAttribute="trailing" constant="8" id="23u-Vd-3MA"/>
+                                    <constraint firstAttribute="height" constant="160" id="6OV-AE-rBW"/>
+                                    <constraint firstAttribute="width" constant="317" id="Bhx-mf-I5y"/>
+                                    <constraint firstAttribute="trailing" secondItem="Fl4-I3-wCR" secondAttribute="trailing" constant="20" id="Clr-cE-5DM"/>
+                                    <constraint firstItem="wDT-3J-RZN" firstAttribute="top" secondItem="Fl4-I3-wCR" secondAttribute="bottom" constant="8" id="Cnm-Zg-6dZ"/>
+                                    <constraint firstItem="e1H-14-uZc" firstAttribute="centerY" secondItem="Fl4-I3-wCR" secondAttribute="centerY" constant="-0.5" id="LVR-xY-RT0"/>
+                                    <constraint firstItem="wDT-3J-RZN" firstAttribute="width" secondItem="Fl4-I3-wCR" secondAttribute="width" id="Rli-7R-5Iv"/>
+                                    <constraint firstItem="e1H-14-uZc" firstAttribute="trailing" secondItem="xhg-tE-y5s" secondAttribute="trailing" id="WWy-IU-zYF"/>
+                                    <constraint firstItem="wDT-3J-RZN" firstAttribute="trailing" secondItem="Fl4-I3-wCR" secondAttribute="trailing" id="Xoa-lJ-5Wv"/>
+                                    <constraint firstItem="e1H-14-uZc" firstAttribute="top" secondItem="Fl4-I3-wCR" secondAttribute="top" constant="4" id="a9Z-zM-bKG"/>
+                                    <constraint firstAttribute="width" constant="308" id="apP-QH-2uz"/>
+                                    <constraint firstItem="wDT-3J-RZN" firstAttribute="centerY" secondItem="xhg-tE-y5s" secondAttribute="centerY" constant="0.5" id="hbd-hH-CQE"/>
+                                    <constraint firstItem="Fl4-I3-wCR" firstAttribute="top" secondItem="Wv1-hY-84m" secondAttribute="top" constant="20" id="noZ-9P-3pK"/>
+                                    <constraint firstItem="wDT-3J-RZN" firstAttribute="top" secondItem="xhg-tE-y5s" secondAttribute="top" id="r5c-A6-ERE"/>
+                                    <constraint firstAttribute="height" constant="108" id="wU7-hd-blJ"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Bhx-mf-I5y"/>
+                                        <exclude reference="wU7-hd-blJ"/>
+                                        <exclude reference="a9Z-zM-bKG"/>
+                                        <exclude reference="r5c-A6-ERE"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKO-43-9xo">
+                                <rect key="frame" x="283" y="171" width="34" height="30"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKI-4K-eJr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Wv1-hY-84m" secondAttribute="centerX" constant="-0.5" id="0XJ-lX-Z1S"/>
+                            <constraint firstItem="Wv1-hY-84m" firstAttribute="centerX" secondItem="nKO-43-9xo" secondAttribute="centerX" constant="1" id="9v0-la-jNd"/>
+                            <constraint firstItem="nKO-43-9xo" firstAttribute="top" secondItem="wDT-3J-RZN" secondAttribute="bottom" constant="20" id="BgJ-MH-Vra"/>
+                            <constraint firstItem="Wv1-hY-84m" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="126" id="EUw-LO-4fa"/>
+                            <constraint firstItem="Wv1-hY-84m" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="43" id="oEw-WR-ANj"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="EUw-LO-4fa"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="dobTextField" destination="wDT-3J-RZN" id="Pip-aq-5H2"/>
+                        <outlet property="nameTextField" destination="Fl4-I3-wCR" id="NZD-at-Dx3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+</document>
