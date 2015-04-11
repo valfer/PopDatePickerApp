@@ -36,14 +36,16 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .NoStyle
-        let initDate = formatter.dateFromString(dobTextField.text)
+        let initDate : NSDate? = formatter.dateFromString(dobTextField.text)
         
-        popDatePicker!.pick(self, initDate:initDate, dataChanged: { (newDate : NSDate, forTextField : UITextField) -> () in
+        let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { (newDate : NSDate, forTextField : UITextField) -> () in
             
             // here we don't use self (no retain cycle)
-            forTextField.text = newDate.ToDateMediumString()
+            forTextField.text = (newDate.ToDateMediumString() ?? "?") as String
             
-        })
+        }
+        
+        popDatePicker!.pick(self, initDate: initDate, dataChanged: dataChangedCallback)
         return false
     }
     else {

@@ -25,7 +25,7 @@ class PopDateViewController : UIViewController {
         }
     }
 
-    override convenience init() {
+    convenience init() {
 
         self.init(nibName: "PopDateViewController", bundle: nil)
     }
