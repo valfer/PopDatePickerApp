@@ -49,9 +49,12 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         }
     }
     
-    public func adaptivePresentationStyleForPresentationController(PC: UIPresentationController) -> UIModalPresentationStyle {
-        
-        return .None
+    //Added UITraitCollection parameter to fix the full screen popover stretch in iPhone 6s and 6s plus - Pramod Joshi
+    public func adaptivePresentationStyleForPresentationController(
+        controller: UIPresentationController,
+        traitCollection: UITraitCollection)
+        -> UIModalPresentationStyle {
+            return .None
     }
     
     func datePickerVCDismissed(date : NSDate?) {
