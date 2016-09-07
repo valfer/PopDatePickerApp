@@ -36,7 +36,7 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         let formatter = NSDateFormatter()
         formatter.dateStyle = .MediumStyle
         formatter.timeStyle = .NoStyle
-        let initDate : NSDate? = formatter.dateFromString(dobTextField.text)
+        let initDate : NSDate? = formatter.dateFromString(dobTextField.text!)
         
         let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { (newDate : NSDate, forTextField : UITextField) -> () in
             
@@ -57,12 +57,12 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         
         var msg : String
         if nameTextField.text != "" && dobTextField.text != "" {
-            msg = nameTextField.text + " " + dobTextField.text
+            msg = nameTextField.text! + " " + dobTextField.text!
         } else {
             msg = "Name or Date empty!"
         }
         let alert:UIAlertController = UIAlertController(title: title, message: msg, preferredStyle:.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction!) in
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction) in
             
         }))
         self.presentViewController(alert, animated:true, completion:nil);

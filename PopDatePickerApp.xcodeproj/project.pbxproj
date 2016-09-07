@@ -176,6 +176,8 @@
 		D91DDD7319E4303E00A8C9C4 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0730;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Valerio Ferrucci";
 				TargetAttributes = {
@@ -423,6 +425,7 @@
 				D91DDD9C19E4303E00A8C9C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D91DDD9D19E4303E00A8C9C4 /* Build configuration list for PBXNativeTarget "PopDatePickerAppTests" */ = {
 			isa = XCConfigurationList;
@@ -431,6 +434,7 @@
 				D91DDD9F19E4303E00A8C9C4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
