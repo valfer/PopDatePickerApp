@@ -10,7 +10,7 @@ import UIKit
 
 public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, DataPickerViewControllerDelegate {
     
-    public typealias PopDatePickerCallback = (newDate : NSDate, forTextField : UITextField)->()
+    public typealias PopDatePickerCallback = (newDate : Date, forTextField : UITextField)->()
     
     var datePickerVC : PopDateViewController
     var popover : UIPopoverPresentationController?
@@ -26,38 +26,38 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         super.init()
     }
     
-    public func pick(inViewController : UIViewController, initDate : NSDate?, dataChanged : PopDatePickerCallback) {
+    public func pick(_ inViewController : UIViewController, initDate : Date?, dataChanged : PopDatePickerCallback) {
         
         if presented {
             return  // we are busy
         }
         
         datePickerVC.delegate = self
-        datePickerVC.modalPresentationStyle = UIModalPresentationStyle.Popover
-        datePickerVC.preferredContentSize = CGSizeMake(500,208)
+        datePickerVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        datePickerVC.preferredContentSize = CGSize(width: 500,height: 208)
         datePickerVC.currentDate = initDate
         
         popover = datePickerVC.popoverPresentationController
         if let _popover = popover {
             
             _popover.sourceView = textField
-            _popover.sourceRect = CGRectMake(self.offset,textField.bounds.size.height,0,0)
+            _popover.sourceRect = CGRect(x: self.offset,y: textField.bounds.size.height,width: 0,height: 0)
             _popover.delegate = self
             self.dataChanged = dataChanged
-            inViewController.presentViewController(datePickerVC, animated: true, completion: nil)
+            inViewController.present(datePickerVC, animated: true, completion: nil)
             presented = true
         }
     }
     
     //Added UITraitCollection parameter to fix the full screen popover stretch in iPhone 6s and 6s plus - Pramod Joshi
-    public func adaptivePresentationStyleForPresentationController(
-        controller: UIPresentationController,
+    public func adaptivePresentationStyle(
+        for controller: UIPresentationController,
         traitCollection: UITraitCollection)
         -> UIModalPresentationStyle {
-            return .None
+            return .none
     }
     
-    func datePickerVCDismissed(date : NSDate?) {
+    func datePickerVCDismissed(_ date : Date?) {
         
         if let _dataChanged = dataChanged {
             
