@@ -29,16 +29,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         nameTextField.resignFirstResponder()
     }
     
-func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
+func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
     
     if (textField === dobTextField) {
         resign()
-        let formatter = NSDateFormatter()
-        formatter.dateStyle = .MediumStyle
-        formatter.timeStyle = .NoStyle
-        let initDate : NSDate? = formatter.dateFromString(dobTextField.text!)
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .none
+        let initDate : Date? = formatter.date(from: dobTextField.text!)
         
-        let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { (newDate : NSDate, forTextField : UITextField) -> () in
+        let dataChangedCallback : PopDatePicker.PopDatePickerCallback = { (newDate : Date, forTextField : UITextField) -> () in
             
             // here we don't use self (no retain cycle)
             forTextField.text = (newDate.ToDateMediumString() ?? "?") as String
@@ -53,7 +53,7 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
     }
 }
     
-    @IBAction func save(sender: AnyObject) {
+    @IBAction func save(_ sender: AnyObject) {
         
         var msg : String
         if nameTextField.text != "" && dobTextField.text != "" {
@@ -61,11 +61,11 @@ func textFieldShouldBeginEditing(textField: UITextField) -> Bool {
         } else {
             msg = "Name or Date empty!"
         }
-        let alert:UIAlertController = UIAlertController(title: title, message: msg, preferredStyle:.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: { (action: UIAlertAction) in
+        let alert:UIAlertController = UIAlertController(title: title, message: msg, preferredStyle:.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action: UIAlertAction) in
             
         }))
-        self.presentViewController(alert, animated:true, completion:nil);
+        self.present(alert, animated:true, completion:nil);
         
     }
 }

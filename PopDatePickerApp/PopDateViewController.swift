@@ -10,7 +10,7 @@ import UIKit
 
 protocol DataPickerViewControllerDelegate : class {
     
-    func datePickerVCDismissed(date : NSDate?)
+    func datePickerVCDismissed(_ date : Date?)
 }
 
 class PopDateViewController : UIViewController {
@@ -19,7 +19,7 @@ class PopDateViewController : UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     weak var delegate : DataPickerViewControllerDelegate?
 
-    var currentDate : NSDate? {
+    var currentDate : Date? {
         didSet {
             updatePickerCurrentDate()
         }
@@ -39,9 +39,9 @@ class PopDateViewController : UIViewController {
         }
     }
 
-    @IBAction func okAction(sender: AnyObject) {
+    @IBAction func okAction(_ sender: AnyObject) {
         
-        self.dismissViewControllerAnimated(true) {
+        self.dismiss(animated: true) {
             
             let nsdate = self.datePicker.date
             self.delegate?.datePickerVCDismissed(nsdate)
@@ -54,7 +54,7 @@ class PopDateViewController : UIViewController {
         updatePickerCurrentDate()
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         
         self.delegate?.datePickerVCDismissed(nil)
     }
