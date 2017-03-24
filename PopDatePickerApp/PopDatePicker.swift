@@ -10,7 +10,7 @@ import UIKit
 
 public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, DataPickerViewControllerDelegate {
     
-    public typealias PopDatePickerCallback = (newDate : Date, forTextField : UITextField)->()
+    public typealias PopDatePickerCallback = (_ newDate : Date, _ forTextField : UITextField)->()
     
     var datePickerVC : PopDateViewController
     var popover : UIPopoverPresentationController?
@@ -26,7 +26,7 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
         super.init()
     }
     
-    public func pick(_ inViewController : UIViewController, initDate : Date?, dataChanged : PopDatePickerCallback) {
+    public func pick(_ inViewController : UIViewController, initDate : Date?, dataChanged : @escaping PopDatePickerCallback) {
         
         if presented {
             return  // we are busy
@@ -63,7 +63,7 @@ public class PopDatePicker : NSObject, UIPopoverPresentationControllerDelegate, 
             
             if let _date = date {
             
-                _dataChanged(newDate: _date, forTextField: textField)
+                _dataChanged(_date, textField)
         
             }
         }
